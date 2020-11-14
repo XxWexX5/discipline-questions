@@ -1,14 +1,10 @@
 import React from 'react';
 
-import { Title } from './styles';
+import Routes from './routes';
 
 function App() {
   return (
-    <div className="App">
-      <Title className="text" color="#F00">
-        Hello World!
-      </Title>
-    </div>
+    <Routes />
   );
 }
 
