@@ -27,7 +27,7 @@ export default createGlobalStyle`
         font-family: leelawadee, Arial, Helvetica, sans-serif;
     }
 
-    html, body, #root {
+    html, body, #root, .container {
         min-height: 100%;
     }
 
@@ -41,5 +41,15 @@ export default createGlobalStyle`
 
     em, i {
         font-weight: 200;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 62em;
+        margin: 0 auto;
+    }
+
+    .row {
+        display: flex;
     }
 `;
