@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { Title } from './styles';
+
 function App() {
   return (
     <div className="App">
-      <p className="text">
+      <Title className="text" color="#F00">
         Hello World!
-      </p>
+      </Title>
     </div>
   );
 }
