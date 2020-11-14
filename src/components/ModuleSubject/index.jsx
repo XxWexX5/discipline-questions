@@ -2,17 +2,11 @@ import React from 'react';
 
 import { WrapperModuleSubject } from './styles';
 
-import IconBook from '../../assets/images/icon-book.svg';
-
-interface ModuleSubjectProps {
-    titleModule: string
-}
-
-function ModuleSubject(props: ModuleSubjectProps) {
+function ModuleSubject(props) {
     return(
-        <WrapperModuleSubject>
+        <WrapperModuleSubject color={props.colorModule} colorShadowModule={props.colorShadowModule} colorBorderBottomModule={props.colorBorderBottomModule}>
             <main className="main">
-                <img src={IconBook} className="image image-book" alt="Ícone de livro"/>
+                <img src={props.imageModule} className="image image-book" alt="Ícone de livro"/>
             </main>
 
             <footer className="footer">

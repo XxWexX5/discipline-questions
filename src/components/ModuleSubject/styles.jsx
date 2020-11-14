@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WrapperModuleSubject = styled.div`
-    background-color: #2878CD;
+    background-color: ${ props => props.color };
     min-width: 17em;
     min-height: 15em;
     display: flex;
@@ -13,7 +13,11 @@ export const WrapperModuleSubject = styled.div`
     position: relative;
 
     &:hover {
-        box-shadow: 5px 5px 45px rgb(40, 120, 205, .35);
+        box-shadow: 5px 5px 45px ${ props => props.colorShadowModule };
+
+        .footer {
+            border-bottom: 0;
+        }
     }
 
     .main {
@@ -31,18 +35,21 @@ export const WrapperModuleSubject = styled.div`
     }
 
     .footer {
-        background-color: #2878CD;
-        border-radius: 2em;
-        bottom: -12px;
+        background-color: ${ props => props.color };
+        border-top-left-radius: .25em;
+        border-top-right-radius: .25em;
+        bottom: -18px;
         box-shadow: 0 0 3px rgba(0, 0, 0, .35);
         left: 0;
         margin: auto;
         max-width: 205px;
-        padding: .35em 0;
+        padding: .65em 0;
         position: absolute;
         right: 0;
         text-align: center;
         width: 100%;
+        border-bottom: 12px solid ${ props => props.colorBorderBottomModule };
+        transition: .15s border-bottom ease-in-out;
 
         .title-module {
             color: #FFFFFF;
