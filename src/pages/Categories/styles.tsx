@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const Title = styled.h1`
+export const WrapperCategories = styled.div`
     color: ${ props => props.color };
 `;

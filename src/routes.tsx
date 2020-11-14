@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Introduction from './pages/introduction';
+import Categories from './pages/Categories';
 
 function Routes() {
     return (
         <BrowserRouter>
-            <Route path="/" component={ Introduction } exact />
+            <Switch>
+                <Route path="/" component={ Categories } exact />
+            </Switch>
         </BrowserRouter>
     );
 }
