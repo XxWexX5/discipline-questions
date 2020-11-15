@@ -84,12 +84,12 @@ export const WrapperResult = styled.div`
                         }
 
                         .title {
-                            font-size: 24px;
+                            font-size: 26px;
                             font-weight: bold;
                         }
 
                         .text {
-                            font-size: 18px;
+                            font-size: 21px;
                         }
                     }
                 }
@@ -113,7 +113,7 @@ export const WrapperResult = styled.div`
                         }
 
                         .text {
-                            font-size: 14px;
+                            font-size: 16px;
                             color: #333333;
                         }
                     }
@@ -140,6 +140,7 @@ export const WrapperResult = styled.div`
         .container-button {
             width: 100%;
             margin: 1.65em 0;
+            padding: 0 1em;
 
             .btn-home {
                 width: 100%;

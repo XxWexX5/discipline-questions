@@ -77,19 +77,19 @@ function Alternative() {
                             <li className="item">
                                 <strong class="title">Fácil</strong>
                                 <p className="text">Acertos: 2</p>
-                                <p className="text">Erros:: 1</p>
+                                <p className="text">Erros: 1</p>
                             </li>
 
                             <li className="item">
                                 <strong class="title">Médio</strong>
                                 <p className="text">Acertos: 3</p>
-                                <p className="text">Erros:: 1</p>
+                                <p className="text">Erros: 1</p>
                             </li>
 
                             <li className="item">
                                 <strong class="title">Difícil</strong>
                                 <p className="text">Acertos: 2</p>
-                                <p className="text">Erros:: 1</p>
+                                <p className="text">Erros: 1</p>
                             </li>
                         </ul>
                     </main>
