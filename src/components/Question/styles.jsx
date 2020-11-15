@@ -37,12 +37,13 @@ export const FeedbackQuestion = styled.div`
                         color: #4ECC58;
                     `
                 }
-                font-size: 18px;
+                font-size: 28px;
             }
 
             .container-image {
                 width: 6em;
                 height: auto;
+                margin: auto;
                 margin-bottom: .65em;
 
                 .image {
@@ -150,6 +151,10 @@ export const WrapperQuestion = styled.div`
                 &.actived {
                     background-color: ${ props => props.color };
                     color: #FFFFFF;
+
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
             }
 

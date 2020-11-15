@@ -25,6 +25,7 @@ export default createGlobalStyle`
         outline: 0;
         box-sizing: border-box;
         font-family: leelawadee, Arial, Helvetica, sans-serif;
+        list-style: none;
     }
 
     html, body, #root, .container {
