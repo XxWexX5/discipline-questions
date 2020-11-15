@@ -1,4 +1,94 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+export const FeedbackQuestion = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    display: none;
+
+    ${props => (props.theme === 'correct' || props.theme === 'wrong') && css`
+        display: flex;
+    `}
+
+    .box {
+        width: 100%;
+        max-width: 500px;
+        min-height: 400px;
+        background-color: #FFFFFF;
+        border-radius: 1.25em;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .main {
+            .text {
+                text-align: centter;
+                ${
+                    props => (props.theme === 'wrong') ? css`
+                        color: #E8354D;
+                    ` : css`
+                        color: #4ECC58;
+                    `
+                }
+                font-size: 18px;
+            }
+
+            .container-image {
+                width: 6em;
+                height: auto;
+                margin-bottom: .65em;
+
+                .image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100%;
+
+            .btn-next {
+                width: 100%;
+                height: 50px;
+                ${
+                    props => (props.theme === 'wrong') ? css`
+                        background-color: #E8354D;
+                    ` : css`
+                        background-color: #4ECC58;
+                    `
+                }
+                color: #FFFFFF;
+                font-weight: bold;
+                font-size: 18px;
+                text-transform: uppercase;
+                border: 0;
+                border-bottom-left-radius: 1.25em;
+                border-bottom-right-radius: 1.25em;
+                display: block;
+                cursor: pointer;
+                transition: .35s opacity ease-in-out;
+
+                &:hover {
+                    opacity: .9;
+                }
+            }
+        }
+    }
+`;
 
 export const WrapperQuestion = styled.div`
     margin: 1.35em 0;

@@ -1,14 +1,48 @@
 import React, { useState } from 'react';
 
-import { WrapperQuestion } from './styles';
+import { WrapperQuestion, FeedbackQuestion } from './styles';
+
+import IconFaceCorrect from '../../assets/images/icon-face-correct.svg';
+import IconFaceWrong from '../../assets/images/icon-face-wrong.svg';
 
 import DifficultyRate from '../DifficultyRate';
 
 function Question(props) {
     const [question01, setQuestion01] = useState('');
+    const [feedback, setFeedback] = useState('');
+
+    function showFeedback() {
+        if(question01 === 'alternative-01') {
+            setFeedback('correct');
+        }else {
+            setFeedback('wrong');
+        }
+    }
+
+    function checkQuestion(e) {
+        e.preventDefault();
+    }
 
     return(
         <WrapperQuestion color={ props.color }>
+            <FeedbackQuestion theme={ feedback }>
+                <div className="box">
+                    <main className="main">
+                        <div className="container-image">
+                            <img src={ feedback === 'correct' ? IconFaceCorrect : IconFaceWrong } alt="Ícone de face incorreta." class="image" />
+                        </div>
+
+                        <p className="text">
+                            Você errou!
+                        </p>
+                    </main>
+
+                    <footer className="footer">
+                        <button className="btn btn-next">Continuar</button>
+                    </footer>
+                </div>
+            </FeedbackQuestion>
+
             <header className="header">
                 <p className="text-question">
                     Questão 01
@@ -22,7 +56,7 @@ function Question(props) {
                     Sobre a conhecida Idade dos Metais, na transição entre a Pré-História e a História, é possível afirmar que
                 </p>
 
-                <form action="" className="form">
+                <form action="" className="form" onSubmit={ checkQuestion }>
                     <div className="wrapper-input">
                         <input type="radio" id="alternative-01" name="question-01" value="alternative-01" onChange={(e) => setQuestion01(e.target.value)} />
                         <label className={ (question01 === 'alternative-01') ? 'actived alternative' : 'alternative' } htmlFor="alternative-01">não existe ligação entre o uso dos metais e a formação de grandes impérios</label>
@@ -43,7 +77,7 @@ function Question(props) {
                         <label className={ (question01 === 'alternative-04') ? 'actived alternative' : 'alternative' } htmlFor="alternative-04">a vida nômade dos primeiros grupos humanos foi um estímulo para o uso dos metais.</label>
                     </div>
 
-                    <button className="btn-send" type="submit">RESPONDER</button>
+                    <button className="btn-send" type="submit" onClick={ showFeedback }>RESPONDER</button>
                 </form>
             </main>
         </WrapperQuestion>

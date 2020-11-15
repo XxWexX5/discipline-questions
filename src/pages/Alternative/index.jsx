@@ -7,8 +7,6 @@ import Question from '../../components/Question';
 
 import { WrapperAlternative } from './styles';
 
-
-
 function getColorTheme(theme) {
     switch(theme) {
         case 'theme-01':
