@@ -9,7 +9,7 @@ function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route path="/" component={ Categories } exact />
-                <Route path="/alternativa" component={ Alternative } exact />
+                <Route path="/alternativa/:theme" component={ Alternative } />
             </Switch>
         </BrowserRouter>
     );

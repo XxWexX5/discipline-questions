@@ -1,9 +1,13 @@
 import React from 'react';
 
+import { useParams } from "react-router-dom";
+
 import HeaderQuestion from '../../components/HeaderQuestion';
 import Question from '../../components/Question';
 
 import { WrapperAlternative } from './styles';
+
+
 
 function getColorTheme(theme) {
     switch(theme) {
@@ -25,12 +29,14 @@ function getColorTheme(theme) {
 }
 
 function Alternative() {
+    let { theme } = useParams();
+
     return(
         <WrapperAlternative>
-            <HeaderQuestion color={ getColorTheme('theme-01') } />
+            <HeaderQuestion color={ getColorTheme(theme) } theme={ theme } />
 
             <div className="container">
-                <Question color={ getColorTheme('theme-01') } />
+                <Question color={ getColorTheme(theme) } />
             </div>
 
         </WrapperAlternative>

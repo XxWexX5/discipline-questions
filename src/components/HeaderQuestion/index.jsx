@@ -11,7 +11,7 @@ import IconHome from '../../assets/images/icon-home.svg';
 function HeaderQuestion(props) {
     return(
         <WrapperHeaderQuestion className="header" color={ props.color }>
-            <TagSubject theme="theme-01" />
+            <TagSubject theme={props.theme} />
 
             <Link to="/" className="back-home">
                 <div className="container-image-home">
