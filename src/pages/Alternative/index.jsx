@@ -1,6 +1,7 @@
 import React from 'react';
 
 import HeaderQuestion from '../../components/HeaderQuestion';
+import Question from '../../components/Question';
 
 function getColorTheme(theme) {
     switch(theme) {
@@ -21,10 +22,17 @@ function getColorTheme(theme) {
     }
 }
 
-function Question() {
+function Alternative() {
     return(
-        <HeaderQuestion color={ getColorTheme('theme-01') } />
+        <>
+            <HeaderQuestion color={ getColorTheme('theme-01') } />
+
+            <div className="container">
+                <Question />
+            </div>
+
+        </>
     );
 }
 
-export default Question;
+export default Alternative;
