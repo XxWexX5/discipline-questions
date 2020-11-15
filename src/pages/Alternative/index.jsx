@@ -3,6 +3,8 @@ import React from 'react';
 import HeaderQuestion from '../../components/HeaderQuestion';
 import Question from '../../components/Question';
 
+import { WrapperAlternative } from './styles';
+
 function getColorTheme(theme) {
     switch(theme) {
         case 'theme-01':
@@ -24,14 +26,14 @@ function getColorTheme(theme) {
 
 function Alternative() {
     return(
-        <>
+        <WrapperAlternative>
             <HeaderQuestion color={ getColorTheme('theme-01') } />
 
             <div className="container">
-                <Question />
+                <Question color={ getColorTheme('theme-01') } />
             </div>
 
-        </>
+        </WrapperAlternative>
     );
 }
 

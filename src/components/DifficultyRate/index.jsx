@@ -6,7 +6,7 @@ import { WrapperDifficultyRate } from './styles';
 
 function DifficultyRate(props) {
     return(
-        <WrapperDifficultyRate difficult={props.difficult} >
+        <WrapperDifficultyRate difficult={props.difficult} color={ props.color }>
             <div className="container-image">
                 <IconRate />
             </div>

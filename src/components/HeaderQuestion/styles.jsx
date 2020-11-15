@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const WrapperHeaderQuestion = styled.header`
     background-color: ${ props => props.color };
     width: 100%;
-    height: 75px;
-
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -10,7 +10,7 @@ export const WrapperDifficultyRate = styled.div`
                 #star-01 {
                     * {
                         opacity: 1;
-                        fill: #3586D3;
+                        fill: ${ props => props.color };
                     }
                 }
             }
@@ -23,14 +23,14 @@ export const WrapperDifficultyRate = styled.div`
                 #star-01 {
                     * {
                         opacity: 1;
-                        fill: #3586D3;
+                        fill: ${ props => props.color };
                     }
                 }
 
                 #star-02 {
                     * {
                         opacity: 1;
-                        fill: #3586D3;
+                        fill: ${ props => props.color };
                     }
                 }
             }
@@ -43,21 +43,21 @@ export const WrapperDifficultyRate = styled.div`
                 #star-01 {
                     * {
                         opacity: 1;
-                        fill: #3586D3;
+                        fill: ${ props => props.color };
                     }
                 }
 
                 #star-02 {
                     * {
                         opacity: 1;
-                        fill: #3586D3;
+                        fill: ${ props => props.color };
                     }
                 }
 
                 #star-03 {
                     * {
                         opacity: 1;
-                        fill: #3586D3;
+                        fill: ${ props => props.color };
                     }
                 }
             }
@@ -80,6 +80,6 @@ export const WrapperDifficultyRate = styled.div`
         font-size: 16px;
         font-weight: bold;
         margin-top: 3px;
-        color: #3586D3;
+        color: ${ props => props.color };
     }
 `;
