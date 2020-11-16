@@ -36,14 +36,15 @@ function Question(props) {
     }
 
     useEffect( () => {
-        localStorage.setItem("correct", 0);
-        localStorage.setItem("wrong", 0);
-        localStorage.setItem("easy-correct", 0);
-        localStorage.setItem("easy-wrong", 0);
-        localStorage.setItem("medium-correct", 0);
-        localStorage.setItem("medium-wrong", 0);
-        localStorage.setItem("hard-correct", 0);
-        localStorage.setItem("hard-wrong", 0);
+        localStorage.setItem(`${props.theme}`, true);
+        localStorage.setItem(`${props.theme}-correct`, 0);
+        localStorage.setItem(`${props.theme}-wrong`, 0);
+        localStorage.setItem(`${props.theme}-easy-correct`, 0);
+        localStorage.setItem(`${props.theme}-easy-wrong`, 0);
+        localStorage.setItem(`${props.theme}-medium-correct`, 0);
+        localStorage.setItem(`${props.theme}-medium-wrong`, 0);
+        localStorage.setItem(`${props.theme}-hard-correct`, 0);
+        localStorage.setItem(`${props.theme}-hard-wrong`, 0);
         localStorage.setItem("penultimate", '');
         localStorage.setItem("last", '');
     }, [])
@@ -82,6 +83,8 @@ function Question(props) {
                     return setDifficult('easy')
                 case 'easy':
                     return setDifficult('easy')
+                default:
+                    return ''
             }
         }
 
@@ -93,6 +96,8 @@ function Question(props) {
                     return setDifficult('hard')
                 case 'hard':
                     return setDifficult('hard')
+                default:
+                    return ''
             }
         }
     }
@@ -108,30 +113,30 @@ function Question(props) {
     }
 
     function controllingAnswersCorrect() {
-        localStorage.setItem("correct", parseInt(localStorage.getItem("correct")) + 1);
+        localStorage.setItem(`${props.theme}-correct`, parseInt(localStorage.getItem(`${props.theme}-correct`)) + 1);
 
         switch(difficult) {
             case 'easy':
-                return localStorage.setItem("easy-correct", parseInt(localStorage.getItem("easy-correct")) + 1);
+                return localStorage.setItem(`${props.theme}-easy-correct`, parseInt(localStorage.getItem(`${props.theme}-easy-correct`)) + 1);
             case 'medium':
-                return localStorage.setItem("medium-correct", parseInt(localStorage.getItem("medium-correct")) + 1);
+                return localStorage.setItem(`${props.theme}-medium-correct`, parseInt(localStorage.getItem(`${props.theme}-medium-correct`)) + 1);
             case 'hard':
-                return localStorage.setItem("hard-correct", parseInt(localStorage.getItem("hard-correct")) + 1);
+                return localStorage.setItem(`${props.theme}-hard-correct`, parseInt(localStorage.getItem(`${props.theme}-hard-correct`)) + 1);
             default:
                 return ''
         }
     }
 
     function controllingAnswersWrong() {
-        localStorage.setItem("wrong", parseInt(localStorage.getItem("wrong")) + 1);
+        localStorage.setItem(`${props.theme}-wrong`, parseInt(localStorage.getItem(`${props.theme}-wrong`)) + 1);
 
         switch(difficult) {
             case 'easy':
-                return localStorage.setItem("easy-wrong", parseInt(localStorage.getItem("easy-wrong")) + 1);
+                return localStorage.setItem(`${props.theme}-easy-wrong`, parseInt(localStorage.getItem(`${props.theme}-easy-wrong`)) + 1);
             case 'medium':
-                return localStorage.setItem("medium-wrong", parseInt(localStorage.getItem("medium-wrong")) + 1);
+                return localStorage.setItem(`${props.theme}-medium-wrong`, parseInt(localStorage.getItem(`${props.theme}-medium-wrong`)) + 1);
             case 'hard':
-                return localStorage.setItem("hard-wrong", parseInt(localStorage.getItem("hard-wrong")) + 1);
+                return localStorage.setItem(`${props.theme}-hard-wrong`, parseInt(localStorage.getItem(`${props.theme}-hard-wrong`)) + 1);
             default:
                 return ''
             
@@ -140,8 +145,6 @@ function Question(props) {
 
     return(
         <WrapperQuestion color={ props.color }>
-            { console.log( questionDiscipline ) }
-
             <FeedbackQuestion theme={ feedback }>
                 <div className="box">
                     <main className="main">

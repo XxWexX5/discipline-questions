@@ -53,7 +53,7 @@ function Alternative() {
                             <div className="row">
                                 <div className="col correct">
                                     <h3 className="title">
-                                        { localStorage.getItem('correct') }
+                                        { localStorage.getItem(`${theme}-correct`) }
                                     </h3>
 
                                     <p className="text">
@@ -63,7 +63,7 @@ function Alternative() {
 
                                 <div className="col wrong">
                                     <h3 className="title">
-                                        { localStorage.getItem('wrong') }
+                                        { localStorage.getItem(`${theme}-wrong`) }
                                     </h3>
 
                                     <p className="text">
@@ -78,20 +78,20 @@ function Alternative() {
                         <ul className="list-items">
                             <li className="item">
                                 <strong className="title">Fácil</strong>
-                                <p className="text">Acertos: { localStorage.getItem('easy-correct') }</p>
-                                <p className="text">Erros: { localStorage.getItem('easy-wrong') }</p>
+                                <p className="text">Acertos: { localStorage.getItem(`${theme}-easy-correct`) }</p>
+                                <p className="text">Erros: { localStorage.getItem(`${theme}-easy-wrong`) }</p>
                             </li>
 
                             <li className="item">
                                 <strong className="title">Médio</strong>
-                                <p className="text">Acertos: { localStorage.getItem('medium-correct') }</p>
-                                <p className="text">Erros: { localStorage.getItem('medium-wrong') }</p>
+                                <p className="text">Acertos: { localStorage.getItem(`${theme}-medium-correct`) }</p>
+                                <p className="text">Erros: { localStorage.getItem(`${theme}-medium-wrong`) }</p>
                             </li>
 
                             <li className="item">
                                 <strong className="title">Difícil</strong>
-                                <p className="text">Acertos: { localStorage.getItem('hard-correct') }</p>
-                                <p className="text">Erros: { localStorage.getItem('hard-wrong') }</p>
+                                <p className="text">Acertos: { localStorage.getItem(`${theme}-hard-correct`) }</p>
+                                <p className="text">Erros: { localStorage.getItem(`${theme}-hard-wrong`) }</p>
                             </li>
                         </ul>
                     </main>
