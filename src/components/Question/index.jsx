@@ -14,6 +14,7 @@ function Question(props) {
     const [feedback, setFeedback] = useState('');
     const [dataApi, setDataApi] = useState([]);
     const [idQuestion, setIdQuestion] = useState(0);
+    const [difficult, setDifficult] = useState('medium');
 
     function getDiscipline(theme) {
         switch(theme) {
@@ -35,24 +36,62 @@ function Question(props) {
     } 
 
     useEffect(async () => {
-        const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${ getDiscipline(props.theme) }&difficulty=medium&type=multiple`);
+        const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${ getDiscipline(props.theme) }&difficulty=${ difficult }&type=multiple`);
         const data = await response.json();
 
         localStorage.setItem("correct", 0);
         localStorage.setItem("wrong", 0);
+        localStorage.setItem("easy-correct", 0);
+        localStorage.setItem("easy-wrong", 0);
+        localStorage.setItem("medium-correct", 0);
+        localStorage.setItem("medium-wrong", 0);
+        localStorage.setItem("hard-correct", 0);
+        localStorage.setItem("hard-wrong", 0);
+        localStorage.setItem("penultimate", '');
+        localStorage.setItem("last", '');
 
         return setDataApi(data.results);
-    }, []);
+    }, [ difficult ]);
 
     function showFeedback() {
         if(question01 === 'alternative-4') {
-            localStorage.setItem("correct", parseInt(localStorage.getItem("correct")) + 1);
+            controllingAnswersCorrect();
+
+            localStorage.setItem("penultimate", localStorage.getItem("last"));
+            localStorage.setItem("last", 1);
 
             return setFeedback('correct');
         }else {
-            localStorage.setItem("wrong", parseInt(localStorage.getItem("wrong")) + 1);
+            controllingAnswersWrong();
 
+            localStorage.setItem("penultimate", localStorage.getItem("last"));
+            localStorage.setItem("last", 0);
+            
             return setFeedback('wrong');
+        }
+    }
+
+    function changeDifficult() {
+        if(parseInt(localStorage.getItem("last")) === 0 && parseInt(localStorage.getItem("penultimate")) === 0) {
+            switch (difficult) {
+                case 'hard':
+                    return setDifficult('medium')
+                case 'medium':
+                    return setDifficult('easy')
+                case 'easy':
+                    return setDifficult('easy')
+            }
+        }
+
+        if(parseInt(localStorage.getItem("last")) === 1 && parseInt(localStorage.getItem("penultimate")) === 1) {
+            switch (difficult) {
+                case 'easy':
+                    return setDifficult('medium')
+                case 'medium':
+                    return setDifficult('hard')
+                case 'hard':
+                    return setDifficult('hard')
+            }
         }
     }
 
@@ -64,6 +103,38 @@ function Question(props) {
         setFeedback('');
         setQuestion01(0);
         setIdQuestion( idQuestion + 1 );
+        changeDifficult();
+    }
+
+    function controllingAnswersCorrect() {
+        localStorage.setItem("correct", parseInt(localStorage.getItem("correct")) + 1);
+
+        switch(difficult) {
+            case 'easy':
+                return localStorage.setItem("easy-correct", parseInt(localStorage.getItem("easy-correct")) + 1);
+            case 'medium':
+                return localStorage.setItem("medium-correct", parseInt(localStorage.getItem("medium-correct")) + 1);
+            case 'hard':
+                return localStorage.setItem("hard-correct", parseInt(localStorage.getItem("hard-correct")) + 1);
+            default:
+                return ''
+        }
+    }
+
+    function controllingAnswersWrong() {
+        localStorage.setItem("wrong", parseInt(localStorage.getItem("wrong")) + 1);
+
+        switch(difficult) {
+            case 'easy':
+                return localStorage.setItem("easy-wrong", parseInt(localStorage.getItem("easy-wrong")) + 1);
+            case 'medium':
+                return localStorage.setItem("medium-wrong", parseInt(localStorage.getItem("medium-wrong")) + 1);
+            case 'hard':
+                return localStorage.setItem("hard-wrong", parseInt(localStorage.getItem("hard-wrong")) + 1);
+            default:
+                return ''
+            
+        }
     }
 
     return(
@@ -94,7 +165,7 @@ function Question(props) {
                     {`Questão ${ idQuestion + 1 }`}
                 </p>
 
-                <DifficultyRate color={ props.color } difficult="normal" />
+                <DifficultyRate color={ props.color } difficult={ difficult } />
             </header>
 
             <main className="main">

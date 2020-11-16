@@ -17,7 +17,7 @@ export const WrapperDifficultyRate = styled.div`
         }
     `}
 
-    ${props => (props.difficult === 'normal') && css`
+    ${props => (props.difficult === 'medium') && css`
         .container-image {
             svg {
                 #star-01 {

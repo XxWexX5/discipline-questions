@@ -78,20 +78,20 @@ function Alternative() {
                         <ul className="list-items">
                             <li className="item">
                                 <strong className="title">Fácil</strong>
-                                <p className="text">Acertos: 2</p>
-                                <p className="text">Erros: 1</p>
+                                <p className="text">Acertos: { localStorage.getItem('easy-correct') }</p>
+                                <p className="text">Erros: { localStorage.getItem('easy-wrong') }</p>
                             </li>
 
                             <li className="item">
                                 <strong className="title">Médio</strong>
-                                <p className="text">Acertos: 3</p>
-                                <p className="text">Erros: 1</p>
+                                <p className="text">Acertos: { localStorage.getItem('medium-correct') }</p>
+                                <p className="text">Erros: { localStorage.getItem('medium-wrong') }</p>
                             </li>
 
                             <li className="item">
                                 <strong className="title">Difícil</strong>
-                                <p className="text">Acertos: 2</p>
-                                <p className="text">Erros: 1</p>
+                                <p className="text">Acertos: { localStorage.getItem('hard-correct') }</p>
+                                <p className="text">Erros: { localStorage.getItem('hard-wrong') }</p>
                             </li>
                         </ul>
                     </main>
