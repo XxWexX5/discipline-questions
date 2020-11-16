@@ -34,7 +34,7 @@ function Alternative() {
             <HeaderQuestion color={ getColorTheme(theme) } theme={ theme } />
 
             <div className="container">
-                <Question color={ getColorTheme(theme) } />
+                <Question color={ getColorTheme(theme) } theme={ theme } />
             </div>
 
         </WrapperAlternative>

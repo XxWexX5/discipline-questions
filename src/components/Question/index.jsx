@@ -15,20 +15,44 @@ function Question(props) {
     const [dataApi, setDataApi] = useState([]);
     const [idQuestion, setIdQuestion] = useState(0);
 
+    function getDiscipline(theme) {
+        switch(theme) {
+            case 'theme-01':
+                return 23;
+            case 'theme-02':
+                return 22;
+            case 'theme-03':
+                return 20;
+            case 'theme-04':
+                return 21;
+            case 'theme-05':
+                return 24;
+            case 'theme-06':
+                return 9;
+            default:
+                return ''
+        }
+    } 
+
     useEffect(async () => {
-        const response = await fetch('https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple');
+        const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${ getDiscipline(props.theme) }&difficulty=medium&type=multiple`);
         const data = await response.json();
 
-        console.log( data );
+        localStorage.setItem("correct", 0);
+        localStorage.setItem("wrong", 0);
 
         return setDataApi(data.results);
     }, []);
 
     function showFeedback() {
         if(question01 === 'alternative-4') {
-            setFeedback('correct');
+            localStorage.setItem("correct", parseInt(localStorage.getItem("correct")) + 1);
+
+            return setFeedback('correct');
         }else {
-            setFeedback('wrong');
+            localStorage.setItem("wrong", parseInt(localStorage.getItem("wrong")) + 1);
+
+            return setFeedback('wrong');
         }
     }
 
@@ -38,7 +62,7 @@ function Question(props) {
 
     function nextQuestion() {
         setFeedback('');
-        setQuestion01('');
+        setQuestion01(0);
         setIdQuestion( idQuestion + 1 );
     }
 
@@ -59,10 +83,8 @@ function Question(props) {
 
                     <footer className="footer">
                         {
-                            ( (idQuestion + 1) >= 10 ) ? <Link to="/resultado/theme-01"><button className="btn btn-next">Continuar</button></Link> : <button className="btn btn-next" onClick={nextQuestion}>Continuar</button>
+                            ( (idQuestion + 1) >= 10 ) ? <Link to={`/resultado/${ props.theme }`}><button className="btn btn-next">Continuar</button></Link> : <button className="btn btn-next" onClick={nextQuestion}>Continuar</button>
                         }
-
-                        
                     </footer>
                 </div>
             </FeedbackQuestion>
@@ -77,7 +99,7 @@ function Question(props) {
 
             <main className="main">
                 <p className="text">
-                    Sobre a conhecida Idade dos Metais, na transição entre a Pré-História e a História, é possível afirmar que
+                    { (dataApi.length > 0) && dataApi[idQuestion].question }
                 </p>
 
                 <form action="" className="form" onSubmit={ checkQuestion }>

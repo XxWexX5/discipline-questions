@@ -134,6 +134,7 @@ export const WrapperQuestion = styled.div`
 
             .alternative {
                 width: 100%;
+                min-width: 45em;
                 background-color: #FFFFFF;
                 border: 2px solid ${ props => props.color };
                 padding: 1.35em 1.1em;

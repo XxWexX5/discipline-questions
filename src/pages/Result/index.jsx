@@ -53,7 +53,7 @@ function Alternative() {
                             <div className="row">
                                 <div className="col correct">
                                     <h3 className="title">
-                                        7
+                                        { localStorage.getItem('correct') }
                                     </h3>
 
                                     <p className="text">
@@ -63,7 +63,7 @@ function Alternative() {
 
                                 <div className="col wrong">
                                     <h3 className="title">
-                                        3
+                                        { localStorage.getItem('wrong') }
                                     </h3>
 
                                     <p className="text">
