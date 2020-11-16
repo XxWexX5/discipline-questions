@@ -10,7 +10,7 @@ import IconFaceWrong from '../../assets/images/icon-face-wrong.svg';
 import DifficultyRate from '../DifficultyRate';
 
 function Question(props) {
-    const [question01, setQuestion01] = useState('');
+    const [questionDiscipline, setQuestionDiscipline] = useState('');
     const [feedback, setFeedback] = useState('');
     const [dataApi, setDataApi] = useState([]);
     const [idQuestion, setIdQuestion] = useState(0);
@@ -33,12 +33,9 @@ function Question(props) {
             default:
                 return ''
         }
-    } 
+    }
 
-    useEffect(async () => {
-        const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${ getDiscipline(props.theme) }&difficulty=${ difficult }&type=multiple`);
-        const data = await response.json();
-
+    useEffect( () => {
         localStorage.setItem("correct", 0);
         localStorage.setItem("wrong", 0);
         localStorage.setItem("easy-correct", 0);
@@ -49,12 +46,17 @@ function Question(props) {
         localStorage.setItem("hard-wrong", 0);
         localStorage.setItem("penultimate", '');
         localStorage.setItem("last", '');
+    }, [])
+
+    useEffect(async () => {
+        const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${ getDiscipline(props.theme) }&difficulty=${ difficult }&type=multiple`);
+        const data = await response.json();
 
         return setDataApi(data.results);
     }, [ difficult ]);
 
     function showFeedback() {
-        if(question01 === 'alternative-4') {
+        if(questionDiscipline === 'alternative-4') {
             controllingAnswersCorrect();
 
             localStorage.setItem("penultimate", localStorage.getItem("last"));
@@ -101,7 +103,6 @@ function Question(props) {
 
     function nextQuestion() {
         setFeedback('');
-        setQuestion01(0);
         setIdQuestion( idQuestion + 1 );
         changeDifficult();
     }
@@ -139,6 +140,8 @@ function Question(props) {
 
     return(
         <WrapperQuestion color={ props.color }>
+            { console.log( questionDiscipline ) }
+
             <FeedbackQuestion theme={ feedback }>
                 <div className="box">
                     <main className="main">
@@ -177,8 +180,8 @@ function Question(props) {
                     {
                         (dataApi.length > 0) && dataApi[idQuestion].incorrect_answers.map((question, id) => (
                             <div className="wrapper-input" key={id}>
-                                <input type="radio" id={`alternative-` + (id + 1)} name={`alternative-` + (idQuestion + 1 )} value={`alternative-` + (id + 1)} onChange={(e) => setQuestion01(e.target.value)} />
-                                <label className={ (question01 === `alternative-` + (id + 1)) ? 'actived alternative' : 'alternative' } htmlFor={`alternative-` + (id + 1)}>
+                                <input type="radio" id={`alternative-` + (id + 1)} name={`alternative-` + (idQuestion + 1 )} value={`alternative-` + (id + 1)} onChange={(e) => setQuestionDiscipline(e.target.value)} />
+                                <label className={ (questionDiscipline === `alternative-` + (id + 1)) ? 'actived alternative' : 'alternative' } htmlFor={`alternative-` + (id + 1)}>
                                     { question }
                                 </label>
                             </div>
@@ -186,8 +189,8 @@ function Question(props) {
                     }
 
                     <div className="wrapper-input">
-                        <input type="radio" id="alternative-4" name={`alternative-` + (idQuestion + 1 )} value="alternative-4"  onChange={(e) => setQuestion01(e.target.value)} />
-                        <label className={ (question01 === "alternative-4") ? 'actived alternative' : 'alternative' } htmlFor="alternative-4" >
+                        <input type="radio" id="alternative-4" name={`alternative-` + (idQuestion + 1 )} value="alternative-4"  onChange={(e) => setQuestionDiscipline(e.target.value)} />
+                        <label className={ (questionDiscipline === "alternative-4") ? 'actived alternative' : 'alternative' } htmlFor="alternative-4" >
                             {  (dataApi.length > 0) && dataApi[idQuestion].correct_answer }
                         </label>
                     </div>
