@@ -39,10 +39,12 @@ function Alternative() {
                     <ImageCharacter />
                 </div>
 
-                <div className="container-tag-result">
-                    <hr className="separator" />
+                <div className="wrapper-tag">
+                    <div className="container-tag-result">
+                        <hr className="separator" />
 
-                    <span className="tag">Veja o seu desempenho nas questões</span>
+                        <span className="tag">Veja o seu desempenho nas questões</span>
+                    </div>
                 </div>
 
                 <div className="wrapper-result-final">
@@ -75,19 +77,19 @@ function Alternative() {
                     <main className="main">
                         <ul className="list-items">
                             <li className="item">
-                                <strong class="title">Fácil</strong>
+                                <strong className="title">Fácil</strong>
                                 <p className="text">Acertos: 2</p>
                                 <p className="text">Erros: 1</p>
                             </li>
 
                             <li className="item">
-                                <strong class="title">Médio</strong>
+                                <strong className="title">Médio</strong>
                                 <p className="text">Acertos: 3</p>
                                 <p className="text">Erros: 1</p>
                             </li>
 
                             <li className="item">
-                                <strong class="title">Difícil</strong>
+                                <strong className="title">Difícil</strong>
                                 <p className="text">Acertos: 2</p>
                                 <p className="text">Erros: 1</p>
                             </li>

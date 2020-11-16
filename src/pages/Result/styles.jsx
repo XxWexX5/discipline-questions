@@ -26,26 +26,31 @@ export const WrapperResult = styled.div`
             }
         }
 
-        .container-tag-result {
-            margin: 2em 0;
-            background-color: ${ props => props.color };
-            color: #FFFFFF;
-            font-weight: bold;
-            padding: .65em 2em;
-            font-size: 21px;
-            border-radius: 2em;
+        .wrapper-tag {
+            padding: 0 1em;
 
-            .separator {
-                background-image: url('../../../assets/images/element-dots.svg');
-                background-size: contain;
-                background-repeat: repeat-x;
-                background-origin: center center;
-                width: 100%;
-                border: 0;
-                position: absolute;
-                left: 0;
-                height: 24px;
-                z-index: 1;
+            .container-tag-result {
+                margin: 2em 0;
+                background-color: ${ props => props.color };
+                color: #FFFFFF;
+                font-weight: bold;
+                padding: .65em 2em;
+                font-size: 21px;
+                border-radius: 2em;
+                text-align: center;
+
+                .separator {
+                    background-image: url('../../../assets/images/element-dots.svg');
+                    background-size: contain;
+                    background-repeat: repeat-x;
+                    background-origin: center center;
+                    width: 100%;
+                    border: 0;
+                    position: absolute;
+                    left: 0;
+                    height: 24px;
+                    z-index: 1;
+                }
             }
         }
 

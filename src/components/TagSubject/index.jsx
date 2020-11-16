@@ -70,7 +70,7 @@ function TagSubject(props) {
     return(
         <WrapperTagSubject>
             <div className="container-image">
-                <img src={ getIcon(props.theme) } alt={ getAltIcon(props.theme) } class="image" />
+                <img src={ getIcon(props.theme) } alt={ getAltIcon(props.theme) } className="image" />
             </div>
 
             <p className="text">{getTitle(props.theme)}</p>

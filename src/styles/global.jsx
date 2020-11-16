@@ -28,6 +28,10 @@ export default createGlobalStyle`
         list-style: none;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     html, body, #root, .container {
         min-height: 100%;
     }

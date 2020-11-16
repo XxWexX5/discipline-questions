@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { Link } from "react-router-dom";
 
 import { WrapperQuestion, FeedbackQuestion } from './styles';
 
@@ -10,9 +12,20 @@ import DifficultyRate from '../DifficultyRate';
 function Question(props) {
     const [question01, setQuestion01] = useState('');
     const [feedback, setFeedback] = useState('');
+    const [dataApi, setDataApi] = useState([]);
+    const [idQuestion, setIdQuestion] = useState(0);
+
+    useEffect(async () => {
+        const response = await fetch('https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple');
+        const data = await response.json();
+
+        console.log( data );
+
+        return setDataApi(data.results);
+    }, []);
 
     function showFeedback() {
-        if(question01 === 'alternative-01') {
+        if(question01 === 'alternative-4') {
             setFeedback('correct');
         }else {
             setFeedback('wrong');
@@ -23,29 +36,40 @@ function Question(props) {
         e.preventDefault();
     }
 
+    function nextQuestion() {
+        setFeedback('');
+        setQuestion01('');
+        setIdQuestion( idQuestion + 1 );
+    }
+
     return(
         <WrapperQuestion color={ props.color }>
             <FeedbackQuestion theme={ feedback }>
                 <div className="box">
                     <main className="main">
                         <div className="container-image">
-                            <img src={ feedback === 'correct' ? IconFaceCorrect : IconFaceWrong } alt="Ícone de face incorreta." class="image" />
+                            <img src={ feedback === 'correct' ? IconFaceCorrect : IconFaceWrong } alt="Ícone de face incorreta." className="image" />
                         </div>
 
                         <p className="text">
-                            Você errou!
+                            { feedback === 'correct' ? 'Você acertou!' : 'Você errou!' }
+                            
                         </p>
                     </main>
 
                     <footer className="footer">
-                        <button className="btn btn-next">Continuar</button>
+                        {
+                            ( (idQuestion + 1) >= 10 ) ? <Link to="/resultado/theme-01"><button className="btn btn-next">Continuar</button></Link> : <button className="btn btn-next" onClick={nextQuestion}>Continuar</button>
+                        }
+
+                        
                     </footer>
                 </div>
             </FeedbackQuestion>
 
             <header className="header">
                 <p className="text-question">
-                    Questão 01
+                    {`Questão ${ idQuestion + 1 }`}
                 </p>
 
                 <DifficultyRate color={ props.color } difficult="normal" />
@@ -57,24 +81,22 @@ function Question(props) {
                 </p>
 
                 <form action="" className="form" onSubmit={ checkQuestion }>
-                    <div className="wrapper-input">
-                        <input type="radio" id="alternative-01" name="question-01" value="alternative-01" onChange={(e) => setQuestion01(e.target.value)} />
-                        <label className={ (question01 === 'alternative-01') ? 'actived alternative' : 'alternative' } htmlFor="alternative-01">não existe ligação entre o uso dos metais e a formação de grandes impérios</label>
-                    </div>
+                    {
+                        (dataApi.length > 0) && dataApi[idQuestion].incorrect_answers.map((question, id) => (
+                            <div className="wrapper-input" key={id}>
+                                <input type="radio" id={`alternative-` + (id + 1)} name={`alternative-` + (idQuestion + 1 )} value={`alternative-` + (id + 1)} onChange={(e) => setQuestion01(e.target.value)} />
+                                <label className={ (question01 === `alternative-` + (id + 1)) ? 'actived alternative' : 'alternative' } htmlFor={`alternative-` + (id + 1)}>
+                                    { question }
+                                </label>
+                            </div>
+                        ))
+                    }
 
                     <div className="wrapper-input">
-                        <input type="radio" id="alternative-02" name="question-01" value="alternative-02" onChange={(e) => setQuestion01(e.target.value)} />
-                        <label className={ (question01 === 'alternative-02') ? 'actived alternative' : 'alternative' } htmlFor="alternative-02">apenas o bronze pode efetivamente ser apresentado como o primeiro metal utilizado.</label>
-                    </div>
-
-                    <div className="wrapper-input">
-                        <input type="radio" id="alternative-03" name="question-01" value="alternative-03" onChange={(e) => setQuestion01(e.target.value)} />
-                        <label className={ (question01 === 'alternative-03') ? 'actived alternative' : 'alternative' } htmlFor="alternative-03">foi marcada pela utilização do cobre, bronze e ferro, na produção de armas, instrumentos agrícola</label>
-                    </div>
-
-                    <div className="wrapper-input">
-                        <input type="radio" id="alternative-04" name="question-01" value="alternative-04" onChange={(e) => setQuestion01(e.target.value)} />
-                        <label className={ (question01 === 'alternative-04') ? 'actived alternative' : 'alternative' } htmlFor="alternative-04">a vida nômade dos primeiros grupos humanos foi um estímulo para o uso dos metais.</label>
+                        <input type="radio" id="alternative-4" name={`alternative-` + (idQuestion + 1 )} value="alternative-4"  onChange={(e) => setQuestion01(e.target.value)} />
+                        <label className={ (question01 === "alternative-4") ? 'actived alternative' : 'alternative' } htmlFor="alternative-4" >
+                            {  (dataApi.length > 0) && dataApi[idQuestion].correct_answer }
+                        </label>
                     </div>
 
                     <button className="btn-send" type="submit" onClick={ showFeedback }>RESPONDER</button>
