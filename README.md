@@ -19,7 +19,11 @@ Segue abaixo conteúdo de apoio para construção do teste, obrigado =)
 
 ![react think](https://i.ibb.co/5M8WR7f/layout.jpg)
 
-##PDF: https://drive.google.com/file/d/1sN3skOPgXKji7gPV2xr-x9qz3HoblJ0_/view?usp=sharing
+##PDF: https://drive.google.com/file/d/1sN3skOPgXKji7gPV2xr-x9qz3HoblJ0_/view?usp=sharing 
+
+##Navegando pela página: https://xd.adobe.com/view/f76404b2-156e-4b73-882f-1cb68fd90435-a237
+
+##Storie no instagram: https://www.instagram.com/stories/highlights/17888568805762693/?hl=pt-br
 
 ##Deploy realizado no seguinte link: https://discipline-questions.vercel.app/
 
