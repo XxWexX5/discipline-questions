@@ -94,6 +94,7 @@ export const FeedbackQuestion = styled.div`
 export const WrapperQuestion = styled.div`
     margin: 1.35em 0;
     padding: 0 1.35em;
+    width: 100%;
 
     .header {
         display: flex;
