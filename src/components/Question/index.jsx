@@ -36,7 +36,6 @@ function Question(props) {
     }
 
     useEffect( () => {
-        localStorage.setItem(`${props.theme}`, true);
         localStorage.setItem(`${props.theme}-correct`, 0);
         localStorage.setItem(`${props.theme}-wrong`, 0);
         localStorage.setItem(`${props.theme}-easy-correct`, 0);
@@ -55,6 +54,12 @@ function Question(props) {
 
         return setDataApi(data.results);
     }, [ difficult ]);
+
+    useEffect( () => {
+        if( (idQuestion + 1) >= 10 ) {
+            localStorage.setItem(`${props.theme}`, true);
+        }
+    }, [idQuestion])
 
     function showFeedback() {
         if(questionDiscipline === 'alternative-4') {

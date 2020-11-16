@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import IconChecked from '../../assets/images/icon-checked.svg';
 
 export const WrapperModuleSubject = styled.div`
     background-color: ${ props => props.color };
@@ -11,6 +13,21 @@ export const WrapperModuleSubject = styled.div`
     cursor: pointer;
     transition: .35s box-shadow ease-in-out;
     position: relative;
+
+    ${props => (props.checked === true) && css`
+        &:after {
+            content: '';
+            background-image: url(${ IconChecked });
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 3em;
+            height: 3em;
+            top: -15px;
+            right: -10px;
+            position: absolute;
+        }
+    `}
 
     &:hover {
         box-shadow: 5px 5px 45px ${ props => props.colorShadowModule };

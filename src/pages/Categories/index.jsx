@@ -27,7 +27,7 @@ function Categories() {
                             {
                                 localStorage.getItem('theme-01') ?
                                     <Link to="/resultado/theme-01">
-                                        <ModuleSubject titleModule="História" colorModule="#2878CD" colorBorderBottomModule="#2A4368" colorShadowModule="rgb(40, 120, 205, .65)" imageModule={IconBook} />
+                                        <ModuleSubject checked={ true } titleModule="História" colorModule="#2878CD" colorBorderBottomModule="#2A4368" colorShadowModule="rgb(40, 120, 205, .65)" imageModule={IconBook} />
                                     </Link>
                                 :
                                     <Link to="/alternativa/theme-01">
@@ -41,7 +41,7 @@ function Categories() {
                             {
                                 localStorage.getItem('theme-02') ?
                                     <Link to="/resultado/theme-02">
-                                        <ModuleSubject titleModule="Geografia" colorModule="#F99933" colorBorderBottomModule="#B87024" colorShadowModule="rgb(249, 153, 51, .65)" imageModule={IconWorld} />
+                                        <ModuleSubject checked={ true } titleModule="Geografia" colorModule="#F99933" colorBorderBottomModule="#B87024" colorShadowModule="rgb(249, 153, 51, .65)" imageModule={IconWorld} />
                                     </Link>
                                 :
                                     <Link to="/alternativa/theme-02">
@@ -54,7 +54,7 @@ function Categories() {
                             {
                                 localStorage.getItem('theme-03') ?
                                     <Link to="/resultado/theme-03">
-                                        <ModuleSubject titleModule="Mitologia" colorModule="#9541B8" colorBorderBottomModule="#672881" colorShadowModule="rgb(149, 65, 184, .65)" imageModule={IconWarrior} />
+                                        <ModuleSubject checked={ true } titleModule="Mitologia" colorModule="#9541B8" colorBorderBottomModule="#672881" colorShadowModule="rgb(149, 65, 184, .65)" imageModule={IconWarrior} />
                                     </Link>
                                 :
                                     <Link to="/alternativa/theme-03">
@@ -67,7 +67,7 @@ function Categories() {
                             {
                                 localStorage.getItem('theme-04') ?
                                     <Link to="/reesultado/theme-04">
-                                        <ModuleSubject titleModule="Esportes" colorModule="#25C96F" colorBorderBottomModule="#377D56" colorShadowModule="rgb(37, 201, 111, .65)" imageModule={IconSoccer} />
+                                        <ModuleSubject checked={ true } titleModule="Esportes" colorModule="#25C96F" colorBorderBottomModule="#377D56" colorShadowModule="rgb(37, 201, 111, .65)" imageModule={IconSoccer} />
                                     </Link>
                                 :
                                     <Link to="/alternativa/theme-04">
@@ -80,7 +80,7 @@ function Categories() {
                             {
                                 localStorage.getItem('theme-05') ?
                                     <Link to="/resultado/theme-05">
-                                        <ModuleSubject titleModule="Política" colorModule="#F52B37" colorBorderBottomModule="#A7282F" colorShadowModule="rgb(245, 43, 55, .65)" imageModule={IconPolitic} />
+                                        <ModuleSubject checked={ true } titleModule="Política" colorModule="#F52B37" colorBorderBottomModule="#A7282F" colorShadowModule="rgb(245, 43, 55, .65)" imageModule={IconPolitic} />
                                     </Link>
                                 :
                                     <Link to="/alternativa/theme-05">
@@ -93,7 +93,7 @@ function Categories() {
                             {
                                 localStorage.getItem('theme-06') ?
                                     <Link to="/resultado/theme-06">
-                                        <ModuleSubject titleModule="Conhecimentos Gerais" colorModule="#F44DB0" colorBorderBottomModule="#D11584" colorShadowModule="rgb(244, 77, 176, .65)" imageModule={IconBrain} />
+                                        <ModuleSubject checked={ true } titleModule="Conhecimentos Gerais" colorModule="#F44DB0" colorBorderBottomModule="#D11584" colorShadowModule="rgb(244, 77, 176, .65)" imageModule={IconBrain} />
                                     </Link>
                                 :
                                     <Link to="/alternativa/theme-06">
