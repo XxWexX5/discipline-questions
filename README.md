@@ -1,5 +1,6 @@
-#Teste de Frontend React
+#Deploy realizado no seguinte link: https://discipline-questions.vercel.app/
 
+#Teste de Frontend React
 - Entre no diretório: discipline-questions (https://github.com/XxWexX5/discipline-questions);
 - Baixe o repositório;
 - Execute: yarn ou npm install;
@@ -24,7 +25,5 @@ Segue abaixo conteúdo de apoio para construção do teste, obrigado =)
 ##Navegando pela página: https://xd.adobe.com/view/f76404b2-156e-4b73-882f-1cb68fd90435-a237
 
 ##Storie no instagram: https://www.instagram.com/stories/highlights/17888568805762693/?hl=pt-br
-
-##Deploy realizado no seguinte link: https://discipline-questions.vercel.app/
 
 ##Obrigado pela oportunidade! =)
