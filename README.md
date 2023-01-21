@@ -1,4 +1,7 @@
-#Deploy realizado no seguinte link: https://discipline-questions.vercel.app/
+#Deploy realizado no seguinte link: https://discipline-questions.vercel.app
+
+#Layout final: 
+![react think](https://i.ibb.co/5M8WR7f/layout.jpg)
 
 #Teste de Frontend React
 - Entre no diretório: discipline-questions (https://github.com/XxWexX5/discipline-questions);
@@ -15,10 +18,6 @@ Segue abaixo conteúdo de apoio para construção do teste, obrigado =)
 #Thinking React:
 
 ![react think](https://i.ibb.co/9rkBtQs/Whats-App-Image-2020-11-16-at-8-34-46-AM.jpg)
-
-#Layout final:
-
-![react think](https://i.ibb.co/5M8WR7f/layout.jpg)
 
 ##PDF: https://drive.google.com/file/d/1sN3skOPgXKji7gPV2xr-x9qz3HoblJ0_/view?usp=sharing 
 
